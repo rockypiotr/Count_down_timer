@@ -20,9 +20,8 @@ body {
   background-image: linear-gradient(to right top, #195abc, #0086df, #00b0f4, #00d8fd, #37ffff);
 }
 
-button,
 input {
-  background: rgba(0, 0, 0, 0.25);
+  background: none;
   border: none;
   padding: 10px 20px;
   font-size: 1.3rem;
@@ -30,6 +29,17 @@ input {
 
 button {
   cursor: pointer;
+  border: none;
+  font-size: 1.3rem;
+  background: none;
+  -webkit-transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.4s;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.4s;
+}
+
+button:hover {
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 input::-webkit-input-placeholder {
@@ -51,14 +61,7 @@ input::-webkit-input-placeholder {
   display: -ms-flexbox;
   display: flex;
   background: red;
-}
-
-.message button {
-  color: black;
-  background: white;
-  font-size: 3rem;
-  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 4rem;
 }
 
 .hidden {
@@ -67,9 +70,9 @@ input::-webkit-input-placeholder {
 
 .timer {
   width: 100vw;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -80,6 +83,7 @@ input::-webkit-input-placeholder {
   position: absolute;
   top: 0;
   left: 0;
+  background: rgba(0, 0, 0, 0.25);
 }
 
 .display {

@@ -7,10 +7,12 @@ const audio = document.querySelector("#sound");
 const message = document.querySelector(".message");
 const enterMins = document.querySelector("form[name='customForm']");
 
-// audio.loop = false;
-
 function timer(seconds) {
-  clearInterval(countDown);
+  try {
+    clearInterval(countdown);
+  } catch (error) {
+    console.info("Ops, I can't find any active Interval");
+  }
 
   const now = Date.now();
   const then = now + seconds * 1000;
@@ -24,7 +26,7 @@ function timer(seconds) {
         isPlayedOnce = true;
         endSound();
       }
-      clearInterval(countDown);
+      clearInterval(countdown);
       return;
     }
 
