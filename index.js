@@ -1,7 +1,13 @@
 let countDown;
-const timerDisplay = document.querySelector('.displayTimeLeft');
-const endTime = document.querySelector('.displayEndTime');
-const buttons = document.querySelectorAll('[data-time]');
+let isPlayedOnce = false;
+const timerDisplay = document.querySelector(".displayTimeLeft");
+const endTime = document.querySelector(".displayEndTime");
+const buttons = document.querySelectorAll("[data-time]");
+const audio = document.querySelector("#sound");
+const message = document.querySelector(".message");
+const enterMins = document.querySelector("form[name='customForm']");
+
+// audio.loop = false;
 
 function timer(seconds) {
   clearInterval(countDown);
@@ -13,8 +19,11 @@ function timer(seconds) {
 
   countdown = setInterval(() => {
     const secondsLeft = Math.round((then - Date.now()) / 1000);
-
     if (secondsLeft < 0) {
+      if (isPlayedOnce == false) {
+        isPlayedOnce = true;
+        endSound();
+      }
       clearInterval(countDown);
       return;
     }
@@ -26,7 +35,9 @@ function timer(seconds) {
 function displayTimeLeft(seconds) {
   const minutes = Math.floor(seconds / 60);
   const remainderSeconds = seconds % 60;
-  const display = `${minutes}:${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}`;
+  const display = `${minutes}:${
+    remainderSeconds < 10 ? "0" : ""
+  }${remainderSeconds}`;
   document.title = display;
   timerDisplay.textContent = display;
 }
@@ -35,7 +46,9 @@ function displayEndTime(timestamp) {
   const end = new Date(timestamp);
   const hour = end.getHours();
   const minutes = end.getMinutes();
-  endTime.textContent = `Be Back At ${hour}:${minutes < 10 ? '0' : ''}${minutes}`;
+  endTime.textContent = `Be Back At ${hour}:${
+    minutes < 10 ? "0" : ""
+  }${minutes}`;
 }
 
 function startTimer() {
@@ -43,10 +56,21 @@ function startTimer() {
   timer(seconds);
 }
 
-buttons.forEach(button => button.addEventListener('click', startTimer));
-document.customForm.addEventListener('submit', function (e) {
+function endSound() {
+  audio.play();
+  message.classList.toggle("hidden");
+}
+
+message.addEventListener("click", () => {
+  message.classList.toggle("hidden");
+  audio.pause();
+  window.location.reload();
+});
+buttons.forEach(button => button.addEventListener("click", startTimer));
+enterMins.addEventListener("submit", function(e) {
   e.preventDefault();
   const mins = this.minutes.value;
   timer(mins * 60);
+  // resets input
   this.reset();
 });

@@ -10,17 +10,101 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 100vw;
   height: 100vh;
   background-image: -webkit-gradient(linear, left bottom, right top, from(#195abc), color-stop(#0086df), color-stop(#00b0f4), color-stop(#00d8fd), to(#37ffff));
   background-image: linear-gradient(to right top, #195abc, #0086df, #00b0f4, #00d8fd, #37ffff);
 }
 
-button {
+button,
+input {
   background: rgba(0, 0, 0, 0.25);
   border: none;
   padding: 10px 20px;
-  margin: 0 5px;
+  font-size: 1.3rem;
+}
+
+button {
   cursor: pointer;
+}
+
+input::-webkit-input-placeholder {
+  color: black;
+  cursor: text;
+}
+
+.message {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: red;
+}
+
+.message button {
+  color: black;
+  background: white;
+  font-size: 3rem;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.hidden {
+  top: -200%;
+}
+
+.timer {
+  width: 100vw;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.display .displayTimeLeft {
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+.display .displayEndTime {
+  font-size: 2rem;
 }
 /*# sourceMappingURL=style.css.map */

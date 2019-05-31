@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="timer">
-      <button data-time="20">20 Secs</button>
+      <button data-time="3">20 Secs</button>
       <button data-time="300">300 Secs</button>
       <button data-time="900">900 Secs</button>
       <button data-time="1200">1200 Secs</button>
@@ -17,11 +17,15 @@
       <form name="customForm" id="custom">
         <input type="text" name="minutes" placeholder="Enter minutes" />
       </form>
-      <div class="display">
-        <h1 class="displayTimeLeft"></h1>
-        <p class="displayEndTime"></p>
-      </div>
     </div>
+    <div class="display">
+      <h1 class="displayTimeLeft"></h1>
+      <p class="displayEndTime"></p>
+    </div>
+    <div class="message hidden">
+      <button>I BACK</button>
+    </div>
+    <audio id="sound" src="openhat.wav" loop="false"></audio>
 
     <script src="index.js"></script>
   </body>
