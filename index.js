@@ -66,7 +66,7 @@ function endSound() {
 message.addEventListener("click", () => {
   message.classList.toggle("hidden");
   audio.pause();
-  window.location.reload();
+  // window.location.reload();
 });
 buttons.forEach(button => button.addEventListener("click", startTimer));
 enterMins.addEventListener("submit", function(e) {
