@@ -1,4 +1,3 @@
 # Count Down Timer
 
-App for counting time
-
+App for counting time with alert
