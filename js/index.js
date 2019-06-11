@@ -1,17 +1,21 @@
 let countDown;
 let isPlayedOnce = false;
-const timerDisplay = document.querySelector(".displayTimeLeft");
-const endTime = document.querySelector(".displayEndTime");
-const buttons = document.querySelectorAll("[data-time]");
-const audio = document.querySelector("#sound");
-const message = document.querySelector(".message");
-const enterMins = document.querySelector("form[name='customForm']");
+const timerDisplay = document.querySelector('.displayTimeLeft');
+const endTime = document.querySelector('.displayEndTime');
+const buttons = document.querySelectorAll('[data-time]');
+const audio = document.querySelector('#sound');
+const message = document.querySelector('.message');
+const enterMins = document.querySelector('form[name=\'customForm\']');
+
+function test() {
+  console.log('test');
+}
 
 function timer(seconds) {
   try {
     clearInterval(countdown);
   } catch (error) {
-    console.info("Ops, I can't find any active Interval");
+    console.info('Ops, I can\'t find any active Interval');
   }
 
   const now = Date.now();
@@ -38,8 +42,8 @@ function displayTimeLeft(seconds) {
   const minutes = Math.floor(seconds / 60);
   const remainderSeconds = seconds % 60;
   const display = `${minutes}:${
-    remainderSeconds < 10 ? "0" : ""
-  }${remainderSeconds}`;
+    remainderSeconds < 10 ? '0' : ''
+    }${remainderSeconds}`;
   document.title = display;
   timerDisplay.textContent = display;
 }
@@ -49,8 +53,8 @@ function displayEndTime(timestamp) {
   const hour = end.getHours();
   const minutes = end.getMinutes();
   endTime.textContent = `Be Back At ${hour}:${
-    minutes < 10 ? "0" : ""
-  }${minutes}`;
+    minutes < 10 ? '0' : ''
+    }${minutes}`;
 }
 
 function startTimer() {
@@ -60,16 +64,15 @@ function startTimer() {
 
 function endSound() {
   audio.play();
-  message.classList.toggle("hidden");
+  message.classList.toggle('hidden');
 }
 
-message.addEventListener("click", () => {
-  message.classList.toggle("hidden");
+message.addEventListener('click', () => {
+  message.classList.toggle('hidden');
   audio.pause();
-  // window.location.reload();
 });
-buttons.forEach(button => button.addEventListener("click", startTimer));
-enterMins.addEventListener("submit", function(e) {
+buttons.forEach(button => button.addEventListener('click', startTimer));
+enterMins.addEventListener('submit', function (e) {
   e.preventDefault();
   const mins = this.minutes.value;
   timer(mins * 60);
