@@ -7,10 +7,6 @@ const audio = document.querySelector('#sound');
 const message = document.querySelector('.message');
 const enterMins = document.querySelector('form[name=\'customForm\']');
 
-function test() {
-  console.log('test');
-}
-
 function timer(seconds) {
   try {
     clearInterval(countdown);
